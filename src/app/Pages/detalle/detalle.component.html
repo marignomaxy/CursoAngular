@@ -1,0 +1,11 @@
+<div class="contenedor">
+    <h1>{{producto.detalle.title}}</h1>
+    <mat-grid-list cols="9" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let picture of producto.detalle.pictures">
+            <img src={{picture.url}} alt="">
+        </mat-grid-tile>
+    </mat-grid-list>
+    <p class="descripcion">{{producto.descripcion.plain_text}}</p>
+    <p>{{producto.detalle.price | currency:'ARS'}}</p>
+    <button mat-raised-button class="colorBoton">Comprar</button>
+</div>

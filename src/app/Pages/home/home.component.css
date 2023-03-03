@@ -1,0 +1,48 @@
+img{
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.tarjeta{
+    text-align: center ;
+    
+}
+
+.colorBoton{
+    background-color: rgb(87, 87, 87);
+    color: white;
+    margin: 0 auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.tituloTarjeta{
+    width: 400px;
+}
+
+.contenedorBuscador{
+    display: flex;
+}
+
+.buscador{
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+div input{
+    width: 600px;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 1px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.estiloBoton{
+    background-color: yellow;
+    border: 1px solid black;
+    height: 28px;
+}

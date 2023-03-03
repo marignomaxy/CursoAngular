@@ -1,0 +1,47 @@
+<h1>Registro</h1>
+<form [formGroup]="formRegistro" (ngSubmit)="registrarse()" class="contenedor">
+    <!--Input Nombre-->
+    <mat-form-field appearance="fill">
+        <mat-label>Ingrese su Nombre</mat-label>
+        <input matInput type="text" formControlName="nombre" id="nombre">
+        <div *ngIf="formRegistro.get('nombre')?.errors && formRegistro.get('nombre')?.dirty">
+            <p *ngIf="formRegistro.get('nombre')?.hasError('required')" class="textError">El campo es obligatorio</p>
+        </div>
+    </mat-form-field>
+    <!--Input Apellido-->
+    <mat-form-field appearance="fill">
+        <mat-label>Ingrese su Apellido</mat-label>
+        <input matInput type="nombre" formControlName="apellido" id="apellido">
+        <div *ngIf="formRegistro.get('apellido')?.errors && formRegistro.get('apellido')?.dirty">
+            <p *ngIf="formRegistro.get('apellido')?.hasError('required')" class="textError">El campo es obligatorio</p>
+        </div>
+    </mat-form-field>
+    <!--Input numero de telefono-->
+    <mat-form-field appearance="fill">
+        <mat-label>Ingrese su Telefono</mat-label>
+        <input matInput type="number" formControlName="telefono" id="telefono">
+    </mat-form-field>
+    <!--Input numero de Email-->
+    <mat-form-field appearance="fill">
+        <mat-label>Ingrese su Email</mat-label>
+        <input matInput placeholder="ejemplo@ejemplo.com" type="email" formControlName="email" id="email">
+        <div *ngIf="formRegistro.get('email')?.errors && formRegistro.get('email')?.dirty">
+            <div *ngIf="formRegistro.get('email')?.hasError('required')">El campo es obligatorio</div>
+        </div>
+    </mat-form-field>
+    <!--Input Contraseña-->
+    <mat-form-field appearance="fill">
+        <mat-label>Ingrese su contraseña</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" id="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <div *ngIf="formRegistro.get('password')?.errors && formRegistro.get('password')?.dirty">
+            <p *ngIf="formRegistro.get('password')?.hasError('required')">El campo es obligatorio</p>
+            <p *ngIf="formRegistro.get('password')?.hasError('minlength')">La contraseña debe ser mayor a 6 caracteres</p>
+            <p *ngIf="formRegistro.get('password')?.hasError('maxlength')">La contraseña no puede tener mas de 10 caracteres</p>
+        </div>
+    </mat-form-field>
+    
+    <button mat-button [ngClass]="{habilitado: !formRegistro.invalid,invalido:formRegistro.invalid}" type="submit" [disabled]="formRegistro.invalid">Registrarse</button>
+</form>

@@ -1,0 +1,27 @@
+.habilitado{
+    background-color: rgb(87, 87, 87);
+    color: white;
+    margin: 0 auto;
+    width: 500px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.contenedor{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    text-align: center;
+}
+
+.invalido{
+    margin: 0 auto;
+    width: 500px;
+    border:1px solid black;
+    border-radius: 5px;
+    color: black;
+    
+}

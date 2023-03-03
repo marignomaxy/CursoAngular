@@ -1,0 +1,25 @@
+<h1>Ingresar</h1>
+<form [formGroup]="formLogin" (ngSubmit)="login()" class="contenedor">
+    <!-- Input Email -->
+    <mat-form-field appearance="fill">
+        <mat-label>Ingrese su Email</mat-label>
+        <input matInput placeholder="ejemplo@ejemplo.com" type="email" formControlName="email" id="email">
+        <div *ngIf="formLogin.get('email')?.errors && formLogin.get('email')?.dirty">
+            <div *ngIf="formLogin.get('email')?.hasError('required')">El campo es obligatorio</div>
+        </div>
+    </mat-form-field>
+    <!-- Input Contraseña -->
+    <mat-form-field appearance="fill">
+        <mat-label>Ingrese su contraseña</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" id="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <div *ngIf="formLogin.get('password')?.errors && formLogin.get('password')?.dirty">
+            <p *ngIf="formLogin.get('password')?.hasError('required')">El campo es obligatorio</p>
+            <p *ngIf="formLogin.get('password')?.hasError('minlength')">La contraseña debe ser mayor a 6 caracteres</p>
+            <p *ngIf="formLogin.get('password')?.hasError('maxlength')">La contraseña no puede tener mas de 10 caracteres</p>
+        </div>
+    </mat-form-field>
+    <button mat-button [ngClass]="{habilitado: !formLogin.invalid,invalido:formLogin.invalid}" type="submit" [disabled]="formLogin.invalid">Ingresar</button>
+</form>

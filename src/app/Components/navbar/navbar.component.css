@@ -1,0 +1,10 @@
+.contenedorNavbar{
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(87, 87, 87);
+}
+
+li{
+    list-style: none;
+    color: white;
+}
